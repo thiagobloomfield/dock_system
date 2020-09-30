@@ -1,9 +1,9 @@
-import express from "express";
+import express from 'express';
 
-const server = express();
+const app = express();
 
-server.get("/", (_, res) => {
-    res.send("Hello ts-node!");
+app.get('/', (request, response) => {
+    return response.json({ message: 'hello world' })
 });
 
-export default server;
+app.listen(3333);
