@@ -1,0 +1,15 @@
++ eslint-config-standard@14.1.1
++ eslint@7.10.0
++ eslint-plugin-node@11.1.0
++ eslint-plugin-standard@4.0.1
++ eslint-plugin-import@2.22.1
++ eslint-plugin-promise@4.2.1
++ @typescript-eslint/eslint-plugin@4.3.0
++ @typescript-eslint/parser@4.3.0
+added 6 packages from 9 contributors, updated 7 packages and audited 333 packages in 12.517s
+
+8 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+
