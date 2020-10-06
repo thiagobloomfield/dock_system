@@ -1,52 +1,39 @@
 {
-  "name": "teste_dev_dock",
+  "name": "api-tarefas-default",
   "version": "1.0.0",
-  "description": "Teste Dev Dock",
+  "description": "npm install",
   "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
-    "start": "node dist/server.js",
-    "test": "jest",
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify -r esm -r dotenv/config src/server.ts --debug",
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
-    "eslint": "eslint --init",
-    "jest": "jest --init"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiagobloomfield/teste_dev_dock.git"
+    "url": "git+https://github.com/marcoaugustoandrade/api-tarefas-default.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thiagobloomfield/teste_dev_dock/issues"
+    "url": "https://github.com/marcoaugustoandrade/api-tarefas-default/issues"
   },
-  "homepage": "https://github.com/thiagobloomfield/teste_dev_dock#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/node": "^7.10.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-typescript": "^7.10.4",
-    "@types/express": "^4.17.8",
-    "@types/jest": "^26.0.14",
-    "@typescript-eslint/eslint-plugin": "^4.3.0",
-    "@typescript-eslint/parser": "^4.3.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.10.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.4.1",
-    "ts-node-dev": "^1.0.0-pre.63",
-    "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.0.3"
-  },
+  "homepage": "https://github.com/marcoaugustoandrade/api-tarefas-default#readme",
   "dependencies": {
-    "esm": "^3.2.25",
-    "express": "^4.17.1"
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.6.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "swagger-ui-express": "^4.1.4",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

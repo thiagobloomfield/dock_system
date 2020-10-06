@@ -1,0 +1,460 @@
+openapi: 3.0.1
+
+info:
+  title: API Dock
+  version: 1.0.0
+  description: "Documentação para acesso a API Dock"
+
+servers:
+- url: http://localhost:3009/api/v1/
+
+tags:
+- name: Pessoas
+- name: Contas
+
+paths: 
+
+  /pessoas:
+    get:
+      tags:
+      - Pessoas
+      summary: Lista todas as pessoas
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pessoas'
+        404:
+          description: Nenhuma pessoa cadastrada
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+    
+    post:
+      tags:
+      - Pessoas
+      summary: Adiciona uma nova pessoa
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pessoas'
+        required: true
+      responses:
+        201:
+          description: Pessoa cadastrada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /pessoas?f=nome:
+    get:
+      tags:
+      - Pessoas
+      summary: Lista uma pessoa através do seu nome
+      parameters:
+      - name: nome
+        in: query
+        description: nome da pessoa
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/pessoas'
+        404:
+          description: Nenhuma pessoa cadastrada com esse id
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+          
+  /pessoas/{idPessoa}:
+    get:
+      tags:
+      - Pessoas
+      summary: Lista uma pessoa através do seu id
+      parameters:
+      - name: id
+        in: path
+        description: id da pessoa
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoas'
+        404:
+          description: Nenhuma pessoa cadastrada com esse id
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+    
+    put:
+      tags:
+      - Pessoas
+      summary: Altera dados de uma pessoa
+      parameters:
+      - name: id
+        in: path
+        description: id da pessoa
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/pessoas'
+        required: true
+      responses:
+        202:
+          description: Pessoa alterada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoas'
+        404:
+          description: Nenhuma pessoa cadastrada com esse id
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+    
+    delete:
+      tags:
+      - Pessoas
+      summary: Deleta uma pessoa através do seu id
+      parameters:
+      - name: id
+        in: path
+        description: id da pessoa
+        required: true
+        schema:
+          type: integer
+      responses:
+        200:
+          description: Pessoa deletada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/pessoas'
+        404:
+          description: Nenhuma pessoa cadastrada com esse id
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas:
+    get:
+      tags:
+      - Contas
+      summary: Lista todas as contas
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contas'
+        404:
+          description: Nenhuma conta cadastrada
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+
+    post:
+      tags:
+      - Contas
+      summary: Adiciona uma nova conta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contas'
+        required: true
+      responses:
+        200:
+          description: Conta cadastrada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas/{idConta}:
+    get:
+      tags:
+      - Contas
+      summary: Lista a conta por id
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contas'
+        404:
+          description: Nenhuma conta cadastrada
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas/{idConta}/extrato-completo:
+    get:
+      tags:
+      - Contas
+      summary: Lista o extrado da conta selecionada
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contas'
+        404:
+          description: Nenhuma conta cadastrada
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}  
+  
+  /contas/{idConta}/extrato-por-periodo:
+    get:
+      tags:
+      - Contas
+      summary: Lista o extrado da conta selecionada por período
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/contas'
+        404:
+          description: Nenhuma conta cadastrada
+          content: {}
+        500:
+          description: Internal Server Error
+          content: {}
+  
+  /contas/deposito:
+    post:
+      tags:
+      - Contas
+      summary: Realiza um depósito em uma conta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contas'
+        required: true
+      responses:
+        200:
+          description: Depósito realizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        402:
+          description: Conta bloqueada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        402:
+          description: Transacao não encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        404:
+          description: Conta não encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas/saque:
+    put:
+      tags:
+      - Contas
+      summary: Realiza um saque em uma conta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contas'
+        required: true
+      responses:
+        200:
+          description: Saque realizado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        402:
+          description: Conta bloqueada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        403:
+          description: Saldo insuficiente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas/{idConta}/bloquear:
+    put:
+      tags:
+      - Contas
+      summary: Realiza o bloqueio em uma conta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contas'
+        required: true
+      responses:
+        200:
+          description: Conta bloqueada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        402:
+          description: Conta bloqueada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        404:
+          description: Conta não encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+  /contas/{idConta}/desbloquear:
+    put:
+      tags:
+      - Contas
+      summary: Realiza o desbloqueio em uma conta
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/contas'
+        required: true
+      responses:
+        200:
+          description: Conta bloqueada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        402:
+          description: Conta bloqueada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        404:
+          description: Conta não encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/contas'
+        500:
+          description: Internal Server Error
+          content: {}
+
+components:
+  
+  schemas:   
+    Pessoa:
+      required:
+      - idPessoa
+      - nome
+      - cpf
+      - dataNascimento
+      type: object
+      properties:
+        idPessoa:
+          type: integer
+        nome:
+          type: string
+        cpf:
+          type: string
+        dataNascimento:
+          type: string
+
+    Conta:
+      required:
+      - idConta
+      - idPessoa
+      - saldo
+      - limiteSaqueDiario
+      - flagAtivo
+      - tipoConta
+      - dataCriacao
+      type: object
+      properties:
+        idConta:
+          type: integer
+        idPessoa:
+          type: integer
+        saldo:
+          type: string
+        limiteSaqueDiario:
+          type: string
+        flagAtivo:
+          type: integer
+        tipoConta:
+          type: integer
+        dataCriacao:
+          type: string
