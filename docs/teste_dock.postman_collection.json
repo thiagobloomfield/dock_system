@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "51d3fde0-7de9-49d6-a482-16c462a0ad4a",
+		"name": "teste_dock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Incluir Pessoa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Thiago",
+							"type": "text"
+						},
+						{
+							"key": "cpf",
+							"value": "12312312312",
+							"type": "text"
+						},
+						{
+							"key": "dataNascimento",
+							"value": "1988-04-09",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/pessoas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"pessoas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pessoas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/pessoas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"pessoas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Pessoas por Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/pessoas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"pessoas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Pessoa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Thiago 1",
+							"type": "text"
+						},
+						{
+							"key": "cpf",
+							"value": "12312312312",
+							"type": "text"
+						},
+						{
+							"key": "dataNascimento",
+							"value": "1988-04-09",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/pessoas/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"pessoas",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Pessoa",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/pessoas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"pessoas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "adm@adm.com.br",
+							"type": "text"
+						},
+						{
+							"key": "senha",
+							"value": "adm",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Contas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir Contas",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idPessoa",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "saldo",
+							"value": "1200.00",
+							"type": "text"
+						},
+						{
+							"key": "limiteSaqueDiario",
+							"value": "150.00",
+							"type": "text"
+						},
+						{
+							"key": "tipoConta",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Deposito em Conta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idConta",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "valor",
+							"value": "1200.00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/deposito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"deposito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Saque em Conta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "idConta",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "valor",
+							"value": "200.00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/saque",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"saque"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bloquear Conta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/2/bloquear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"2",
+						"bloquear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Desbloquear Conta",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/2/desbloquear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"2",
+						"desbloquear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extrato Conta Completo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/2/extrato-completo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"2",
+						"extrato-completo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Extrato Conta Por Periodo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "dataInicial",
+							"value": "2020-10-01 00:00:00",
+							"type": "text"
+						},
+						{
+							"key": "dataFinal",
+							"value": "2020-10-07 00:00:00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/2/extrato-por-periodo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"2",
+						"extrato-por-periodo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Contas Por Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c3VhcmlvIjoxLCJpYXQiOjE2MDE5ODgyNjIsImV4cCI6MTYwMjAxODI2Mn0._ceYPuh8qzl7-42wLg4DtVlo3OkDPnyBfvuabdM4jHw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3009/api/v1/contas/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3009",
+					"path": [
+						"api",
+						"v1",
+						"contas",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
