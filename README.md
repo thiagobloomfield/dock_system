@@ -21,13 +21,17 @@ e executar os seguintes passos:
 sudo mysql -u root -p
 
 // Criando um usuário para uso da API
+
 create user 'suporte'@'localhost' identified by '123#Mudar';
 
 // Concedendo privilégios
+
 grant all privileges on db_tarefas.* to 'suporte'@'localhost';
 
 // Saindo do SGDB
+
 exit
 
 // Importando o schema do banco de dados
+
 mysql -u suporte -p < database/schema.sql
